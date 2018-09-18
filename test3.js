@@ -27,13 +27,21 @@ driver.findElement(By.name('emailid')).sendKeys("support@bstack.com");
 driver.findElement(By.name('btnLogin')).click();
 
 //Assert if 'This access is valid only for 20 days.' exists
-var ans = driver.findElement(By.css("h3")).getText();
+driver.sleep(10000);
+driver.findElement(By.css("h3")).getText().then(function(ans){
 
-console.log(ans.value_);
-assert.equal("This access is valid only for 20 days.",ans.value_,"Error Value");
+//console.log(ans.value_);
+if(assert.equal("This access is valid only for 20 days.",ans,"FAIL")==undefined){
+    console.log("Success");
+}
+});
 //Switch to first window
 driver.switchTo().window(parent_window);
+driver.sleep(5000);
+driver.findElement(By.xpath("//body/p/a")).getText().then(function(c){
 
-var c = driver.findElement(By.xpath("//body/p/a")).getText();
 //Assert if 'Click here' text exists
-assert.equal("Click Here",c.value_,"Error Value");
+if(assert.equal("Click Here",c,"FAIL")==undefined){
+    console.log("Success");
+}});
+driver.quit();
