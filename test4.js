@@ -30,6 +30,9 @@ driver.findElement(By.xpath('//*[@id="testmultiple"]/option[4]')).click();
 // Click 'Submit'
 driver.findElement(By.id("submit")).click();
 // Verifies if the body contains the text --> {""testname""=>""BrowserStack"", ""testemail""=>""support@bstack.com"", ""testcheckbox""=>""true"", ""testcolor""=>""yellow"", ""testmultiple""=>[""red"", ""gray""]}"
-var val=driver.findElement(By.xpath('/html/body')).getText();
-assert.equal('{"testname"=>"BrowserStack", "testemail"=>"support@bstack.com", "testcheckbox"=>"true", "testcolor"=>"yellow", "testmultiple"=>["red", "gray"]}',val.value_,'Error Value');
+driver.findElement(By.xpath('/html/body')).getText().then(function(val){
+if(assert.equal('{"testname"=>"BrowserStack", "testemail"=>"support@bstack.com", "testcheckbox"=>"true", "testcolor"=>"yellow", "testmultiple"=>["red", "gray"]}',val,"FAIL")==undefined){
+  console.log("Success");
+}
+});
 driver.quit();
