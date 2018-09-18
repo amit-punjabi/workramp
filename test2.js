@@ -12,13 +12,18 @@ driver.switchTo().alert().accept();
 // Click 'Click for JS Confirm'. Clicks 'OK'. Assert the Result value 'You clicked: Ok'
 driver.findElement(By.xpath('//*[@id="content"]/div/ul/li[2]/button')).click()
 driver.switchTo().alert().accept();
-var result = driver.findElement(By.id('result')).getText()
-assert.equal("You clicked: Ok",result.value_)
+driver.findElement(By.id('result')).getText().then(function(res){
+if(assert.equal("You clicked: Ok",res,"FAIL")==undefined){
+    console.log("SUCCESS");
+}
+})
 // Click 'Click for JS Prompt'. Enter 'BrowserStack' in the prompt. Assert the Result value 'You entered: BrowserStack' Screen reader support enabled.
 driver.findElement(By.xpath('//*[@id="content"]/div/ul/li[3]/button')).click()
 driver.switchTo().alert().sendKeys("BrowserStack")
 driver.switchTo().alert().accept()
 
-var result = driver.findElement(By.id('result')).getText()
-assert.equal("You entered: BrowserStack",result.value_)
+driver.findElement(By.id('result')).getText().then(function(result){
+if(assert.equal("You entered: BrowserStack",result,"FAIL")==undefined){
+    console.log("SUCCESS");
+}})
 driver.quit();
