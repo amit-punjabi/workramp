@@ -1,7 +1,7 @@
 var request = require('request');
 var assert = require('assert')
-var user = 'amitpunjabi1';
-var key = 'yMtYz9ThrcPcCDAnBezs';
+var user = 'USERNAME';
+var key = 'ACCESS_KEY';
 var obj = "";
 var name = "";
 var limit="";
