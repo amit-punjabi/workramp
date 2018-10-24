@@ -8,15 +8,6 @@ var limit = 0;
 var x = 0;
 var i = 0;
 var capabilities = '';
-//{
-//   'browserName' : 'iPhone',
-//   'device' : 'iPhone 7',
-//   'realMobile' : 'true',
-//   'os_version' : '10.3',
-//   'browserstack.user' : 'amitpunjabi1',
-//   'browserstack.key' : 'yMtYz9ThrcPcCDAnBezs',
-//   //'browserstack.local' : true
-//  }
 
 // Should print number of browsers in browsers.json file which is 10
 a.valueAccess();
@@ -29,16 +20,9 @@ function def() {
     setTimeout(function () {
         name = a.name;
     }, 3000);
-    // limit = a.limit;
-    // queue = a.queue;
-    // console.log(limit);
-    // console.log(name);
-    // refreshData(name,queue);
-    // console.log(obj.parallel_sessions_running);
 }
 
 function pre() {
-    //console.log("pre pre pre pre");
     capabilities = browsers[0];
     name = a.name;
     limit = a.limit;
@@ -60,16 +44,6 @@ function refreshData() {
                 callTest();
             },3000
         )
-        // console.log(name);
-        // if (name < 2 && queue==0) {
-
-        //     test();
-        // }
-        // else if (name == 2) {
-        //     while (name == 2) {
-        //         a.hello;
-        //     }
-        // }
         break;
     }
 
@@ -118,18 +92,3 @@ function test(){
         });
     });
 }
-// var driver = new webdriver.Builder().
-//   usingServer('http://hub-cloud.browserstack.com/wd/hub').
-//   withCapabilities(capabilities).
-//   build();
-
-// driver.get('http://www.google.com').then(function(){
-//   debugger;
-//   driver.findElement(webdriver.By.name('q')).sendKeys('BrowserStack\n').then(function(){
-//     driver.getTitle().then(function(title) {
-//       console.log(title);
-//       driver.quit();
-//     });
-//   });
-// });
-// /* Test End */
