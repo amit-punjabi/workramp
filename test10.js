@@ -7,16 +7,6 @@ describe("Workramp test 10", function() {
         var images = element(by.getElementsByTagName('example')).getText().then(function(ghi){
                 console.log(ghi);
         });
-        // console.log(images[0]);
-
-        // var imgs = element(by.getElementsByTagName('img'));
-            // loaded = 0;
-            // console.log(imgs);
-        // for (var i = 0; i < imgs.length; i++) {
-        //     if (imgs[i].naturalWidth > 0) {
-        //         loaded = loaded + 1;
-        //     };
-        // };
     }, 6000);
 
     browser.executeAsyncScript(function (callback) {
